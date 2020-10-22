@@ -1,9 +1,8 @@
-public static Digester newDigester(boolean xmlValidation,
-                                   boolean xmlNamespaceAware,
-                                   RuleSet rule) {
-  Digester digester = new Digester();
-  // ...
-  digester.setUseContextClassLoader(true);
-  // ...
+protected static final Digester webDigester = init();
+ 
+protected Digester init() {
+  Digester digester = createWebDigester();
+  // Does not use the context Classloader at initialization
+  digester.getParser();
   return digester;
 }
